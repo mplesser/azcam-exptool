@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ExposureTool</class>
+ <widget class="QMainWindow" name="ExposureTool">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>511</width>
+    <height>471</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>260</width>
+    <height>100</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1000</width>
+    <height>1000</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>8</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>ExpStatus</string>
+  </property>
+  <property name="toolTip">
+   <string>azcam exposure status</string>
+  </property>
+  <property name="whatsThis">
+   <string/>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>15</width>
+    <height>15</height>
+   </size>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLCDNumber" name="dewtemp_LcdNumber">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>270</y>
+      <width>71</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="camtemp_LcdNumber">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>270</y>
+      <width>71</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="progressBar">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>300</y>
+      <width>451</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>24</number>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="testimage_CheckBox">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>90</y>
+      <width>91</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Test Image</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="imagetitle_LineEdit">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>150</y>
+      <width>261</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="messages_statusPlainTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>340</y>
+      <width>461</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="exposuretime_SpinBox">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>50</y>
+      <width>81</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="imagetype_ComboBox">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>50</y>
+      <width>73</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="imagetype_Label">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>30</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Image Type</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="camtemp_Label">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>250</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CamTemp</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="exposuretime_Label">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>30</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Exposure Time</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="dewtemp_Label">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>250</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>DewTemp</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="imagetitleLabel">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>130</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Image Title</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="numseq_SpinBox">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>50</y>
+      <width>61</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="numseq_label">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>30</y>
+      <width>61</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Num Seq.</string>
+    </property>
+   </widget>
+   <widget class="QSplitter" name="buttons_splitter">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>31</y>
+      <width>91</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+    <widget class="QPushButton" name="expose_Button">
+     <property name="text">
+      <string>Expose</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="sequence_Button">
+     <property name="text">
+      <string>Sequence</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="filename_Button">
+     <property name="text">
+      <string>Filename</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="detector_Button">
+     <property name="text">
+      <string>Detector</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="reset_Button">
+     <property name="text">
+      <string>Reset</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="telescope_Button">
+     <property name="text">
+      <string>Abort</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="preferences_Button">
+     <property name="text">
+      <string>Preferences</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QSplitter" name="pause_splitter">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>381</y>
+      <width>225</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+    <widget class="QPushButton" name="pause_Button">
+     <property name="text">
+      <string>Pause</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="resume_Button">
+     <property name="text">
+      <string>Resume</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="abort_Button">
+     <property name="text">
+      <string>Readout</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

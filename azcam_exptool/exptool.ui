@@ -309,12 +309,12 @@
       <x>350</x>
       <y>390</y>
       <width>111</width>
-      <height>20</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>8</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>

@@ -66,12 +66,23 @@ class ExposureStatus(QMainWindow):
         Update GUI indicators.
         """
 
+        status = db.exposure.get_status()
+        # print(status)
+        exp_label = status["exposurelabel"]
+        expstate = status["exposurestate"]
+        camtemp = float(status["camtemp"])
+        dewtemp = float(status["dewtemp"])
+        message = status["message"]
+        print(exp_label, expstate, message)
+
+        if len(exp_label) > 0:
+            message = f"{message}: {exp_label}"
+
         # set status text
-        _, status = db.exposure.get_exposureflag()
-        self.ui.exposurestatus_label.setText(status)
+        self.ui.messages_PlainTextEdit.setPlainText(message)
+        self.ui.exposurestatus_label.setText(expstate)
 
         # temperatures
-        camtemp, dewtemp = db.tempcon.get_temperatures()
         self.ui.camtempvalue_label.setText(f"{camtemp:.02f}")
         self.ui.dewtempvalue_label.setText(f"{dewtemp:.02f}")
 
@@ -128,9 +139,7 @@ class ExposureStatus(QMainWindow):
         et = self.ui.exposuretime_SpinBox.value()
         itype = self.ui.imagetype_ComboBox.currentText()
         ititle = self.ui.imagetitle_LineEdit.text()
-        print(et, itype, ititle)
         db.exposure.expose1(et, itype, ititle)
-        print("exposed")
 
         return
 

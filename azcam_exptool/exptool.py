@@ -6,6 +6,7 @@ from PySide2.QtWidgets import QMainWindow, QApplication
 
 import azcam
 import azcam.console
+from azcam import db
 from azcam_exptool.exptool_ui import Ui_ExposureTool
 
 
@@ -18,11 +19,31 @@ class ExposureStatus(QMainWindow):
         self.ui.setupUi(self)
 
         self.update_interval = 300  # update time ms
-        self.flags = azcam.db.exposureflags
+        self.flags = db.exposureflags
 
         # blank text on indicators
-        # self.ui.label_integrating.setText("")
-        # self.ui.label_reading.setText("")
+        self.ui.exposurestatus_label.setText("")
+
+        # connect buttons
+        self.ui.detector_Button.released.connect(self.detector)
+        self.ui.expose_Button.released.connect(self.expose)
+        self.ui.filename_Button.released.connect(self.filename)
+        self.ui.preferences_Button.released.connect(self.preferences)
+        self.ui.reset_Button.released.connect(self.reset)
+        self.ui.sequence_Button.released.connect(self.sequence)
+        self.ui.abort_Button.released.connect(self.abort)
+        self.ui.pause_Button.released.connect(self.pause)
+        self.ui.resume_Button.released.connect(self.resume)
+        self.ui.readout_Button.released.connect(self.readout)
+
+        # add image types
+        imagetypes = db.exposure.get_image_types()
+        self.ui.imagetype_ComboBox.clear()
+        self.ui.imagetype_ComboBox.addItems(imagetypes)
+
+        # set initial exposure time
+        et = db.exposure.get_exposuretime()
+        self.ui.exposuretime_SpinBox.setValue(et)
 
         # make a timer
         self.timerID = self.ctimer = QtCore.QTimer()
@@ -45,10 +66,16 @@ class ExposureStatus(QMainWindow):
         Update GUI indicators.
         """
 
-        """
         # set status text
-        status = azcam.db.params.get_par("exposureflag")
+        _, status = db.exposure.get_exposureflag()
+        self.ui.exposurestatus_label.setText(status)
 
+        # temperatures
+        camtemp, dewtemp = db.tempcon.get_temperatures()
+        self.ui.camtempvalue_label.setText(f"{camtemp:.02f}")
+        self.ui.dewtempvalue_label.setText(f"{dewtemp:.02f}")
+
+        """
         for key in self.flags:
             if self.flags[key] == status:
                 if key == "NONE":
@@ -82,14 +109,116 @@ class ExposureStatus(QMainWindow):
     """
         return
 
+    def detector(self):
+        """
+        Detector button.
+        """
+
+        self.ui.messages_PlainTextEdit.setPlainText("detector")
+
+        return
+
+    def expose(self):
+        """
+        Expose button.
+        """
+
+        self.ui.messages_PlainTextEdit.setPlainText("Exposure started")
+        self.ui.messages_PlainTextEdit.repaint()
+        et = self.ui.exposuretime_SpinBox.value()
+        itype = self.ui.imagetype_ComboBox.currentText()
+        ititle = self.ui.imagetitle_LineEdit.text()
+        print(et, itype, ititle)
+        db.exposure.expose1(et, itype, ititle)
+        print("exposed")
+
+        return
+
+    def filename(self):
+        """
+        Filename button.
+        """
+
+        self.ui.messages_PlainTextEdit.setPlainText("filename")
+
+        return
+
+    def preferences(self):
+        """
+        Preferences button.
+        """
+
+        return
+
+    def reset(self):
+        """
+        Reset button.
+        """
+
+        self.ui.messages_PlainTextEdit.setPlainText("resetting...")
+        self.ui.messages_PlainTextEdit.repaint()
+        db.exposure.reset()
+        self.ui.messages_PlainTextEdit.setPlainText("")
+        self.ui.messages_PlainTextEdit.repaint()
+
+        return
+
+    def sequence(self):
+        """
+        Sequence button.
+        """
+
+        self.ui.messages_PlainTextEdit.setPlainText("sequence")
+
+        return
+
+    def abort(self):
+        """
+        Abort button.
+        """
+
+        self.ui.messages_PlainTextEdit.setPlainText("abort")
+
+        return
+
+    def pause(self):
+        """
+        Pause button.
+        """
+
+        self.ui.messages_PlainTextEdit.setPlainText("pause")
+
+        return
+
+    def resume(self):
+        """
+        Resume button.
+        """
+
+        self.ui.messages_PlainTextEdit.setPlainText("resume")
+
+        return
+
+    def readout(self):
+        """
+        Readout button.
+        """
+
+        self.ui.messages_PlainTextEdit.setPlainText("readout")
+
+        return
+
+    # *****************************************************************************
+    # utilities
+    # *****************************************************************************
     def start(self):
 
         # create
         if getattr(azcam.db, "qtapp", None) is None:
-            azcam.db.qtapp = QApplication(["ExpStatus"])
+            db.qtapp = QApplication(["ExpStatus"])
 
         # set window location
-        self.move(50, 50)
+        self.move(100, 100)
 
         # show GUI
         self.show()
@@ -100,27 +229,24 @@ class ExposureStatus(QMainWindow):
 # execute when run directly
 if __name__ == "__main__":
 
-    # ****************************************************************
     # parse command line arguments
-    # ****************************************************************
     try:
         i = sys.argv.index("-port")
         port = int(sys.argv[i + 1])
     except ValueError:
         port = 2402
 
-    # ****************************************************************
     # create Qt app
-    # ****************************************************************
-    if azcam.db.get("atapp") is None:
+    if db.get("atapp") is None:
         qtapp = QtCore.QCoreApplication.instance()
         if qtapp is None:
             qtapp = QApplication(sys.argv)
-        azcam.db.qtapp = qtapp
+        db.qtapp = qtapp
 
     azcam.console_tools.load()
 
-    connected = azcam.db.server.connect(port=port)  # default host and port
+    # connect to azcamserver
+    connected = db.server.connect(port=port)
     if connected:
         print("Connected to azcamserver")
     else:

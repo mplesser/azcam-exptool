@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "..\\..\\environments\\azcam-itl"
+		},
+		{
+			"path": "..\\azcam-observe"
 		}
 	],
     "settings": {}

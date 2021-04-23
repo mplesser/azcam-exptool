@@ -21,9 +21,6 @@ class ExposureStatus(QMainWindow):
         self.update_interval = 300  # update time ms
         self.flags = db.exposureflags
 
-        # blank text on indicators
-        self.ui.exposurestatus_label.setText("")
-
         # connect buttons
         self.ui.detector_Button.released.connect(self.detector)
         self.ui.expose_Button.released.connect(self.expose)
@@ -41,9 +38,12 @@ class ExposureStatus(QMainWindow):
         self.ui.imagetype_ComboBox.clear()
         self.ui.imagetype_ComboBox.addItems(imagetypes)
 
-        # set initial exposure time
+        # set initial values
         et = db.exposure.get_exposuretime()
         self.ui.exposuretime_SpinBox.setValue(et)
+
+        # connect change events
+        self.ui.imagetitle_LineEdit.editingFinished.connect(self.imagetitle_change)
 
         # make a timer
         self.timerID = self.ctimer = QtCore.QTimer()
@@ -67,13 +67,16 @@ class ExposureStatus(QMainWindow):
         """
 
         status = db.exposure.get_status()
-        # print(status)
         exp_label = status["exposurelabel"]
         expstate = status["exposurestate"]
         camtemp = float(status["camtemp"])
         dewtemp = float(status["dewtemp"])
         message = status["message"]
-        print(exp_label, expstate, message)
+        progressbar = float(status["progressbar"])
+        exposurecolor = status["exposurecolor"]
+        mode = status["mode"]
+
+        self.ui.progressBar.setValue(progressbar)
 
         if len(exp_label) > 0:
             message = f"{message}: {exp_label}"
@@ -81,43 +84,14 @@ class ExposureStatus(QMainWindow):
         # set status text
         self.ui.messages_PlainTextEdit.setPlainText(message)
         self.ui.exposurestatus_label.setText(expstate)
+        self.ui.mode_label.setText(mode)
 
         # temperatures
         self.ui.camtempvalue_label.setText(f"{camtemp:.02f}")
         self.ui.dewtempvalue_label.setText(f"{dewtemp:.02f}")
+        if exposurecolor != "transparent":
+            self.ui.exposurestatus_label.setStyleSheet(f"background-color: {exposurecolor}")
 
-        """
-        for key in self.flags:
-            if self.flags[key] == status:
-                if key == "NONE":
-                    self.ui.label_status.setText("")
-                    self.ui.label_reading.setStyleSheet("background-color: none;")
-                    self.ui.label_integrating.setStyleSheet("background-color: none;")
-                    self.ui.label_integrating.setText("")
-                    self.ui.label_reading.setText("")
-                else:
-                    # set status text
-                    self.ui.label_status.setText(key)
-                    # set indicator colors
-                    if key == "EXPOSING":
-                        self.ui.label_integrating.setStyleSheet("background-color: green;")
-                        self.ui.label_reading.setStyleSheet("background-color: none;")
-                        self.ui.label_integrating.setText("Exposing")
-                        self.ui.label_reading.setText("")
-                    elif key == "READOUT":
-                        self.ui.label_reading.setStyleSheet("background-color: red;")
-                        self.ui.label_integrating.setStyleSheet("background-color: none;")
-                        self.ui.label_reading.setText("Reading")
-                        self.ui.label_integrating.setText("")
-                    else:
-                        self.ui.label_reading.setStyleSheet("background-color: none;")
-                        self.ui.label_integrating.setStyleSheet("background-color: none;")
-                        self.ui.label_integrating.setText("")
-                        self.ui.label_reading.setText("")
-
-                break
-
-    """
         return
 
     def detector(self):
@@ -214,6 +188,16 @@ class ExposureStatus(QMainWindow):
         """
 
         self.ui.messages_PlainTextEdit.setPlainText("readout")
+
+        return
+
+    def imagetitle_change(self):
+        """
+        Set image title.
+        """
+
+        ititle = self.ui.imagetitle_LineEdit.text()
+        db.exposure.set_image_title(ititle)
 
         return
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>478</width>
-    <height>428</height>
+    <width>643</width>
+    <height>412</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -47,21 +47,21 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>290</y>
-      <width>451</width>
-      <height>16</height>
+      <y>270</y>
+      <width>461</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="value">
-     <number>24</number>
+     <number>100</number>
     </property>
    </widget>
    <widget class="QCheckBox" name="testimage_CheckBox">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>90</y>
-      <width>91</width>
+      <x>390</x>
+      <y>30</y>
+      <width>81</width>
       <height>20</height>
      </rect>
     </property>
@@ -72,8 +72,8 @@
    <widget class="QLineEdit" name="imagetitle_LineEdit">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>150</y>
+      <x>120</x>
+      <y>80</y>
       <width>261</width>
       <height>22</height>
      </rect>
@@ -83,7 +83,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>320</y>
+      <y>300</y>
       <width>461</width>
       <height>31</height>
      </rect>
@@ -92,8 +92,8 @@
    <widget class="QDoubleSpinBox" name="exposuretime_SpinBox">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>50</y>
+      <x>210</x>
+      <y>30</y>
       <width>81</width>
       <height>22</height>
      </rect>
@@ -111,8 +111,8 @@
    <widget class="QComboBox" name="imagetype_ComboBox">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>50</y>
+      <x>120</x>
+      <y>30</y>
       <width>73</width>
       <height>22</height>
      </rect>
@@ -121,8 +121,8 @@
    <widget class="QLabel" name="imagetype_Label">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>30</y>
+      <x>120</x>
+      <y>10</y>
       <width>91</width>
       <height>16</height>
      </rect>
@@ -134,8 +134,8 @@
    <widget class="QLabel" name="camtemp_Label">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>230</y>
+      <x>120</x>
+      <y>220</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -147,8 +147,8 @@
    <widget class="QLabel" name="exposuretime_Label">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>30</y>
+      <x>210</x>
+      <y>10</y>
       <width>91</width>
       <height>16</height>
      </rect>
@@ -160,8 +160,8 @@
    <widget class="QLabel" name="dewtemp_Label">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>230</y>
+      <x>220</x>
+      <y>220</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -173,8 +173,8 @@
    <widget class="QLabel" name="imagetitleLabel">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>130</y>
+      <x>120</x>
+      <y>60</y>
       <width>91</width>
       <height>16</height>
      </rect>
@@ -186,8 +186,8 @@
    <widget class="QSpinBox" name="numseq_SpinBox">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>50</y>
+      <x>310</x>
+      <y>30</y>
       <width>61</width>
       <height>22</height>
      </rect>
@@ -202,8 +202,8 @@
    <widget class="QLabel" name="numseq_label">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>30</y>
+      <x>310</x>
+      <y>10</y>
       <width>61</width>
       <height>16</height>
      </rect>
@@ -215,8 +215,8 @@
    <widget class="QSplitter" name="buttons_splitter">
     <property name="geometry">
      <rect>
-      <x>11</x>
-      <y>31</y>
+      <x>10</x>
+      <y>20</y>
       <width>91</width>
       <height>241</height>
      </rect>
@@ -270,9 +270,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>360</y>
+      <y>340</y>
       <width>225</width>
-      <height>23</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="orientation">
@@ -306,11 +306,14 @@
    <widget class="QLabel" name="camtempvalue_label">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>250</y>
+      <x>120</x>
+      <y>240</y>
       <width>51</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -318,15 +321,21 @@
     <property name="text">
      <string>-999.99</string>
     </property>
+    <property name="scaledContents">
+     <bool>false</bool>
+    </property>
    </widget>
    <widget class="QLabel" name="dewtempvalue_label">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>250</y>
+      <x>220</x>
+      <y>240</y>
       <width>51</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -337,12 +346,15 @@
     <property name="text">
      <string>-999.99</string>
     </property>
+    <property name="scaledContents">
+     <bool>false</bool>
+    </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>400</y>
+      <y>380</y>
       <width>461</width>
       <height>21</height>
      </rect>
@@ -477,6 +489,283 @@
       </widget>
      </item>
     </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="detpars_dockWidget">
+   <property name="minimumSize">
+    <size>
+     <width>168</width>
+     <height>38</height>
+    </size>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: lightgray</string>
+   </property>
+   <property name="floating">
+    <bool>true</bool>
+   </property>
+   <property name="windowTitle">
+    <string>Detector Parameters</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <widget class="QWidget" name="layoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>55</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLabel" name="colbin_label_2">
+        <property name="text">
+         <string>FirstCol</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="firstcol_spinBox">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;column binning&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>99999</number>
+        </property>
+        <property name="value">
+         <number>1</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget_3">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>30</y>
+       <width>39</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QLabel" name="rowbin_label">
+        <property name="text">
+         <string>rowbin</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="rowbin_spinBox">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;column binning&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="value">
+         <number>1</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>130</y>
+       <width>55</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <widget class="QLabel" name="colbin_label_4">
+        <property name="text">
+         <string>FirstRow</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="firstrow_spinBox">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;column binning&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>99999</number>
+        </property>
+        <property name="value">
+         <number>1</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget_5">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>130</y>
+       <width>55</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_5">
+      <item>
+       <widget class="QLabel" name="colbin_label_5">
+        <property name="text">
+         <string>LastRow</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="lastrow_spinBox">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;column binning&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>99999</number>
+        </property>
+        <property name="value">
+         <number>1</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget_6">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>80</y>
+       <width>55</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_6">
+      <item>
+       <widget class="QLabel" name="colbin_label_6">
+        <property name="text">
+         <string>LastCol</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="lastcol_spinBox">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;column binning&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>99999</number>
+        </property>
+        <property name="value">
+         <number>1</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>0</y>
+       <width>141</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Region-of_Interest</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="setroi_Button">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>180</y>
+       <width>151</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set Region-of-Interest with above parameters&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="text">
+      <string>Set ROI</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>39</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="colbin_label">
+        <property name="text">
+         <string>colbin</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="colbin_spinBox">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;column binning&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="value">
+         <number>1</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <zorder>colbin_spinBox</zorder>
+    <zorder>colbin_label</zorder>
+    <zorder>layoutWidget_2</zorder>
+    <zorder>layoutWidget_3</zorder>
+    <zorder>layoutWidget_4</zorder>
+    <zorder>layoutWidget_5</zorder>
+    <zorder>layoutWidget_6</zorder>
+    <zorder>colbin_spinBox</zorder>
+    <zorder>label</zorder>
+    <zorder>setroi_Button</zorder>
    </widget>
   </widget>
  </widget>

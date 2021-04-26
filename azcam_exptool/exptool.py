@@ -32,6 +32,7 @@ class ExposureStatus(QMainWindow):
         self.ui.pause_Button.released.connect(self.pause)
         self.ui.resume_Button.released.connect(self.resume)
         self.ui.readout_Button.released.connect(self.readout)
+        self.ui.setroi_Button.released.connect(self.set_roi)
 
         # add image types
         imagetypes = db.exposure.get_image_types()
@@ -99,7 +100,13 @@ class ExposureStatus(QMainWindow):
         Detector button.
         """
 
-        self.ui.messages_PlainTextEdit.setPlainText("detector")
+        reply = db.exposure.get_roi()
+        self.ui.firstcol_spinBox.setValue(reply[0])
+        self.ui.lastcol_spinBox.setValue(reply[1])
+        self.ui.firstrow_spinBox.setValue(reply[2])
+        self.ui.lastrow_spinBox.setValue(reply[3])
+        self.ui.rowbin_spinBox.setValue(reply[4])
+        self.ui.colbin_spinBox.setValue(reply[5])
 
         return
 
@@ -198,6 +205,21 @@ class ExposureStatus(QMainWindow):
 
         ititle = self.ui.imagetitle_LineEdit.text()
         db.exposure.set_image_title(ititle)
+
+        return
+
+    def set_roi(self):
+        """
+        Set ROI.
+        """
+
+        firstcol = self.ui.firstcol_spinBox.value()
+        lastcol = self.ui.lastcol_spinBox.value()
+        firstrow = self.ui.firstrow_spinBox.value()
+        lastrow = self.ui.lastrow_spinBox.value()
+        colbin = self.ui.rowbin_spinBox.value()
+        rowbin = self.ui.colbin_spinBox.value()
+        db.exposure.set_roi(firstcol, lastcol, firstrow, lastrow, colbin, rowbin)
 
         return
 

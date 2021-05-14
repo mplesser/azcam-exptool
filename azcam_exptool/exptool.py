@@ -50,7 +50,9 @@ class ExposureStatus(QMainWindow):
         self.timerID = self.ctimer = QtCore.QTimer()
 
         # connect timer
-        QtCore.QObject.connect(self.ctimer, QtCore.SIGNAL("timeout()"), self.timer_update)
+        QtCore.QObject.connect(
+            self.ctimer, QtCore.SIGNAL("timeout()"), self.timer_update
+        )
 
         # start timer
         self.ctimer.start(self.update_interval)
@@ -91,7 +93,9 @@ class ExposureStatus(QMainWindow):
         self.ui.camtempvalue_label.setText(f"{camtemp:.02f}")
         self.ui.dewtempvalue_label.setText(f"{dewtemp:.02f}")
         if exposurecolor != "transparent":
-            self.ui.exposurestatus_label.setStyleSheet(f"background-color: {exposurecolor}")
+            self.ui.exposurestatus_label.setStyleSheet(
+                f"background-color: {exposurecolor}"
+            )
 
         return
 

@@ -103,7 +103,9 @@ class ObserveQt(QMainWindow, ObserveCommon):
         )
         self.ui.plainTextEdit_filename.setPlainText(self.script_file)
 
-        number_cycles = azcam.db.params.get_script_par("observe", "number_cycles", "default", "", 1)
+        number_cycles = azcam.db.params.get_script_par(
+            "observe", "number_cycles", "default", "", 1
+        )
         self.number_cycles = int(number_cycles)
         self.ui.spinBox_loops.setValue(self.number_cycles)
 
@@ -266,7 +268,9 @@ class ObserveQt(QMainWindow, ObserveCommon):
         self.gui_mode = 1
 
         self.status("Running...")
-        self.number_cycles = self.ui.spinBox_loops.value()  # set number of cycles to run script
+        self.number_cycles = (
+            self.ui.spinBox_loops.value()
+        )  # set number of cycles to run script
 
         my_thread = QtCore.QThread()
         my_thread.start()

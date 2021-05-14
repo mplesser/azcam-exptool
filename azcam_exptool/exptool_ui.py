@@ -335,7 +335,9 @@ class Ui_ExposureTool(object):
     # setupUi
 
     def retranslateUi(self, ExposureTool):
-        ExposureTool.setWindowTitle(QCoreApplication.translate("ExposureTool", u"ExpStatus", None))
+        ExposureTool.setWindowTitle(
+            QCoreApplication.translate("ExposureTool", u"ExpStatus", None)
+        )
         # if QT_CONFIG(tooltip)
         ExposureTool.setToolTip(
             QCoreApplication.translate("ExposureTool", u"azcam exposure status", None)
@@ -350,27 +352,51 @@ class Ui_ExposureTool(object):
         self.imagetype_Label.setText(
             QCoreApplication.translate("ExposureTool", u"Image Type", None)
         )
-        self.camtemp_Label.setText(QCoreApplication.translate("ExposureTool", u"CamTemp", None))
+        self.camtemp_Label.setText(
+            QCoreApplication.translate("ExposureTool", u"CamTemp", None)
+        )
         self.exposuretime_Label.setText(
             QCoreApplication.translate("ExposureTool", u"Exposure Time", None)
         )
-        self.dewtemp_Label.setText(QCoreApplication.translate("ExposureTool", u"DewTemp", None))
+        self.dewtemp_Label.setText(
+            QCoreApplication.translate("ExposureTool", u"DewTemp", None)
+        )
         self.imagetitleLabel.setText(
             QCoreApplication.translate("ExposureTool", u"Image Title", None)
         )
-        self.numseq_label.setText(QCoreApplication.translate("ExposureTool", u"Num Seq.", None))
-        self.expose_Button.setText(QCoreApplication.translate("ExposureTool", u"Expose", None))
-        self.sequence_Button.setText(QCoreApplication.translate("ExposureTool", u"Sequence", None))
-        self.filename_Button.setText(QCoreApplication.translate("ExposureTool", u"Filename", None))
-        self.detector_Button.setText(QCoreApplication.translate("ExposureTool", u"Detector", None))
-        self.reset_Button.setText(QCoreApplication.translate("ExposureTool", u"Reset", None))
-        self.abort_Button.setText(QCoreApplication.translate("ExposureTool", u"Abort", None))
+        self.numseq_label.setText(
+            QCoreApplication.translate("ExposureTool", u"Num Seq.", None)
+        )
+        self.expose_Button.setText(
+            QCoreApplication.translate("ExposureTool", u"Expose", None)
+        )
+        self.sequence_Button.setText(
+            QCoreApplication.translate("ExposureTool", u"Sequence", None)
+        )
+        self.filename_Button.setText(
+            QCoreApplication.translate("ExposureTool", u"Filename", None)
+        )
+        self.detector_Button.setText(
+            QCoreApplication.translate("ExposureTool", u"Detector", None)
+        )
+        self.reset_Button.setText(
+            QCoreApplication.translate("ExposureTool", u"Reset", None)
+        )
+        self.abort_Button.setText(
+            QCoreApplication.translate("ExposureTool", u"Abort", None)
+        )
         self.preferences_Button.setText(
             QCoreApplication.translate("ExposureTool", u"Preferences", None)
         )
-        self.pause_Button.setText(QCoreApplication.translate("ExposureTool", u"Pause", None))
-        self.resume_Button.setText(QCoreApplication.translate("ExposureTool", u"Resume", None))
-        self.readout_Button.setText(QCoreApplication.translate("ExposureTool", u"Readout", None))
+        self.pause_Button.setText(
+            QCoreApplication.translate("ExposureTool", u"Pause", None)
+        )
+        self.resume_Button.setText(
+            QCoreApplication.translate("ExposureTool", u"Resume", None)
+        )
+        self.readout_Button.setText(
+            QCoreApplication.translate("ExposureTool", u"Readout", None)
+        )
         self.camtempvalue_label.setText(
             QCoreApplication.translate("ExposureTool", u"-999.99", None)
         )
@@ -386,9 +412,13 @@ class Ui_ExposureTool(object):
         # endif // QT_CONFIG(tooltip)
         self.bar_label_2.setText("")
         # if QT_CONFIG(tooltip)
-        self.mode_label.setToolTip(QCoreApplication.translate("ExposureTool", u"server mode", None))
+        self.mode_label.setToolTip(
+            QCoreApplication.translate("ExposureTool", u"server mode", None)
+        )
         # endif // QT_CONFIG(tooltip)
-        self.mode_label.setText(QCoreApplication.translate("ExposureTool", u"Mode", None))
+        self.mode_label.setText(
+            QCoreApplication.translate("ExposureTool", u"Mode", None)
+        )
         # if QT_CONFIG(tooltip)
         self.exposurestatus_label.setToolTip(
             QCoreApplication.translate("ExposureTool", u"exposure status", None)
@@ -400,7 +430,9 @@ class Ui_ExposureTool(object):
         self.detpars_dockWidget.setWindowTitle(
             QCoreApplication.translate("ExposureTool", u"Detector Parameters", None)
         )
-        self.colbin_label_2.setText(QCoreApplication.translate("ExposureTool", u"FirstCol", None))
+        self.colbin_label_2.setText(
+            QCoreApplication.translate("ExposureTool", u"FirstCol", None)
+        )
         # if QT_CONFIG(tooltip)
         self.firstcol_spinBox.setToolTip(
             QCoreApplication.translate(
@@ -410,7 +442,9 @@ class Ui_ExposureTool(object):
             )
         )
         # endif // QT_CONFIG(tooltip)
-        self.rowbin_label.setText(QCoreApplication.translate("ExposureTool", u"rowbin", None))
+        self.rowbin_label.setText(
+            QCoreApplication.translate("ExposureTool", u"rowbin", None)
+        )
         # if QT_CONFIG(tooltip)
         self.rowbin_spinBox.setToolTip(
             QCoreApplication.translate(
@@ -420,7 +454,9 @@ class Ui_ExposureTool(object):
             )
         )
         # endif // QT_CONFIG(tooltip)
-        self.colbin_label_4.setText(QCoreApplication.translate("ExposureTool", u"FirstRow", None))
+        self.colbin_label_4.setText(
+            QCoreApplication.translate("ExposureTool", u"FirstRow", None)
+        )
         # if QT_CONFIG(tooltip)
         self.firstrow_spinBox.setToolTip(
             QCoreApplication.translate(
@@ -430,7 +466,9 @@ class Ui_ExposureTool(object):
             )
         )
         # endif // QT_CONFIG(tooltip)
-        self.colbin_label_5.setText(QCoreApplication.translate("ExposureTool", u"LastRow", None))
+        self.colbin_label_5.setText(
+            QCoreApplication.translate("ExposureTool", u"LastRow", None)
+        )
         # if QT_CONFIG(tooltip)
         self.lastrow_spinBox.setToolTip(
             QCoreApplication.translate(
@@ -440,7 +478,9 @@ class Ui_ExposureTool(object):
             )
         )
         # endif // QT_CONFIG(tooltip)
-        self.colbin_label_6.setText(QCoreApplication.translate("ExposureTool", u"LastCol", None))
+        self.colbin_label_6.setText(
+            QCoreApplication.translate("ExposureTool", u"LastCol", None)
+        )
         # if QT_CONFIG(tooltip)
         self.lastcol_spinBox.setToolTip(
             QCoreApplication.translate(
@@ -450,7 +490,9 @@ class Ui_ExposureTool(object):
             )
         )
         # endif // QT_CONFIG(tooltip)
-        self.label.setText(QCoreApplication.translate("ExposureTool", u"Region-of_Interest", None))
+        self.label.setText(
+            QCoreApplication.translate("ExposureTool", u"Region-of_Interest", None)
+        )
         # if QT_CONFIG(tooltip)
         self.setroi_Button.setToolTip(
             QCoreApplication.translate(
@@ -460,8 +502,12 @@ class Ui_ExposureTool(object):
             )
         )
         # endif // QT_CONFIG(tooltip)
-        self.setroi_Button.setText(QCoreApplication.translate("ExposureTool", u"Set ROI", None))
-        self.colbin_label.setText(QCoreApplication.translate("ExposureTool", u"colbin", None))
+        self.setroi_Button.setText(
+            QCoreApplication.translate("ExposureTool", u"Set ROI", None)
+        )
+        self.colbin_label.setText(
+            QCoreApplication.translate("ExposureTool", u"colbin", None)
+        )
         # if QT_CONFIG(tooltip)
         self.colbin_spinBox.setToolTip(
             QCoreApplication.translate(

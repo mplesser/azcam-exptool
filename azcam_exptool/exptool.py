@@ -262,7 +262,7 @@ if __name__ == "__main__":
             qtapp = QApplication(sys.argv)
         db.qtapp = qtapp
 
-    azcam.console_tools.load()
+    azcam.tools.load_console_tools()
 
     # connect to azcamserver
     connected = db.server.connect(port=port)
